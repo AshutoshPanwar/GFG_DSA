@@ -28,7 +28,7 @@ int rec_fact(int n){
 
 int main()
 {
-    int num = 5;
+    int num = 19;
     cout << "Factorial of " << num << " is " << fact(num) << endl;
     cout << "Factorial of " << num << " is " << rec_fact(num) << endl;
     return 0;
