@@ -1,20 +1,31 @@
-// Josephus Problem (If N person are standing in a circle and the k-th person is killed then which person at index will survive.)
+// Josephus Problem [If N person are standing in a circle and the k'th person is killed then which person at index will survive.]
+// Takes 2 paramete's as (no of person's) & (Person to be killed)
+// First person kill will be (n - 1).
+// Every recursive call is independent of last person killed. So we need to find the relation as [k + ].
+// At some point sum will exceed value > n. So we perform (n %).
 
 #include<iostream>
 using namespace std;
 
-int josephus(int n, int k){
-    if(n==1){
+int jos(int n, int k)
+{
+    if(n==1){                   // Base Condition
         return 0;
     }
-    else
-        return (josephus(n-1, k)+k)%n;
+
+    return (jos(n-1, k) + k) % n;       // Recursive call
+}
+
+int myJos(int n, int k)
+{
+    return jos(n, k) + 1;       // If consedering first person to be 1.
 }
 
 int main()
 {
-    int n = 5;
-    int k = 3;
-    cout << "The chosen place is " << josephus(n, k);
+    cout << myJos(5, 3);
     return 0;
 }
+
+// OUTPUT:
+//     4
